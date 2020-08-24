@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        background-color: cadetblue;
+        font: normal 15pt Arial;
+    }
+    header{
+        text-align: center;
+        color: cornsilk;
+    }
+    section{
+        background-color: white;
+        padding: 15px;
+        width: 500px;
+        border-radius: 15px;
+        
+        margin:auto
+    }
+    footer{
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Vamos Contar</h1>
+</header>
+<section>
+    <div id='dados'>
+<p>Inicio: <input type="number" name="" id="txtvalue1"> </p>
+<p>Fim: <input type="number" name="" id="txtvalue2"></p>
+<p>Passo: <input type="number" name="" id="txtvalue3"></p>
+<p><input type="button" value="Contar" onclick="contar()"></p>
+    </div>
+    <div id='res'>
+        Preparando a contagem...
+    </div>
+</section>
+<footer>
+    <p>
+        &copy; Thiago Batista
+    </p>
+</footer>
+<script>
+    function contar(){
+        let ini= document.getElementById('txtvalue1')
+        let fim= document.getElementById('txtvalue2')
+        let passo= document.getElementById ('txtvalue3')
+        let res= document.getElementById('res')
+        if(ini.value.length==0 || fim.value.length==0 || passo.value.length==0){
+            window.alert('Verifique os dados e tente novamente')
+        }
+        else{
+            res.innerHTML = 'Contando:'
+            let i =Number(ini.value)
+            let f = Number(fim.value)
+            let p = Number(passo.value)
+            if(i<f){
+                //Contagem Crescente
+            for(let c =i ; c<=f; c+=p){
+                res.innerHTML += `${c} \u{1F449}`
+            }}
+            else{
+                //Contagem Regressiva
+                for(let c =i ; c>=f; c-=p){
+                    res.innerHTML += `${c} \u{1F449}`
+
+                }
+            }
+         
+        
+    }}
+    
+
+    
+</script>
+</body>
+</html>
